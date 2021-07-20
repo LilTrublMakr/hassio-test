@@ -1,0 +1,56 @@
+{
+  "name": "Gitea",
+  "version": "1.14.5",
+  "slug": "hassio_gitea",
+  "description": "Git with a cup of tea for Home Assistant",
+  "url": "https://github.com/go-gitea/gitea",
+  "arch": [
+    "armhf",
+    "armv7",
+    "aarch64",
+    "amd64",
+    "i386"
+  ],
+  "init": false,
+  "startup": "services",
+  "boot": "manual",
+  "hassio_api": true,
+  "hassio_role": "default",
+  "auth_api": true,
+  "docker_api": true,
+  "host_network": true,
+  "host_pid": true,
+  "apparmor": false,
+  "map": [
+    "config:rw",
+    "ssl:rw",
+    "addons:rw",
+    "backup:rw",
+    "share:rw"
+  ],
+  "privileged": [
+    "SYS_ADMIN"
+  ],
+  "full_access": true,
+  "options": {
+    "MariaDB": {
+      "url": "http://172.0.0.1:3306",
+      "db": "gitea",
+      "username": "gitea",
+      "password": "giteapasswordgitea"
+    }
+  },
+  "schema": {
+    "MariaDB": {
+      "url": "str",
+      "db": "str",
+      "username": "str",
+      "password": "str"
+    }
+  },
+  "ports": {
+    "3000/tcp": 3000,
+    "22/tcp": 22
+  },
+  "image" : "gitea/gitea"
+}
