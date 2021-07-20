@@ -44,8 +44,8 @@
     "MariaDB": {
       "url": "str",
       "db": "str",
-      "username": "str",
-      "password": "str"
+      "username": "str?",
+      "password": "str?"
     }
   },
   "ports": {
